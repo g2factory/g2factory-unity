@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Description" CONTENT="業務委託でWebページやアプリの制作を受けています。3DのWebページも作成できます。">
+    <title>G2Factory<Web制作></title>
+  </head>
+  <body style="text-align: center; margin: 0px">
+    <canvas id="unity-canvas" width=960 height=600 style="width: 960px; height: 600px; background: #231F20"></canvas>
+    <script src="Build/page.loader.js"></script>
+    <script>
+      var canvas = document.getElementById("unity-canvas");
+
+      function resizeCanvas() {
+        canvas.style.width = window.innerWidth + "px";
+        canvas.style.height = window.innerHeight + "px";
+      };
+
+      window.onresize = resizeCanvas;
+
+      resizeCanvas();
+
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/page.data.unityweb",
+        frameworkUrl: "Build/page.framework.js.unityweb",
+        codeUrl: "Build/page.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "G2Factory",
+        productVersion: "0.1",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+    </script>
+    <noscript>
+      <p>業務委託でWebページやアプリの制作を受けています。</p>
+      <p>このページは、3DページになっていますのでScriptをオンにして御覧ください。</p>
+    </noscript>
+  </body>
+</html>
